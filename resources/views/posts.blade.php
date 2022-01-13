@@ -5,17 +5,20 @@
         <link rel="stylesheet" href="/app.css">
     </head>
     <body>
-        <?php foreach ($posts as $post) : ?>
-        <article>
-            <h1>
-                <a href="/post/<?= $post->slug; ?>">
-                <?= $post->title; ?>
-                </a>
-            </h1>
-            <div>
-                <?= $post->excerpt; ?>
-            </div>
-        </article>
-        <?php endforeach; ?>
+        @foreach ($posts as $post)
+        @dd($loop)
+            <article class="{{ $loop->even ? 'foobar' : '' }}">
+                <h1>
+                    <a href="/post/{{$post->slug }}">
+                        <!-- ways to call elements from a collection -->
+                    {{-- <?= $post->title; ?> --}}  
+                    {{ $post->title }}
+                    </a>
+                </h1>
+                <div>
+                    {{ $post->excerpt }}
+                </div>
+            </article>
+        @endforeach
     </body>
 </html>
