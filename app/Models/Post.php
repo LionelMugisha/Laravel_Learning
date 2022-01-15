@@ -9,16 +9,16 @@ class Post extends Model
     //
     // protected $guarded = ['id']; 
     // protected $fillable = ['title','slug', 'excerpt', 'body']; 
-    protected $guarded = [];
+    protected $guarded = [];    //we are in control
 
-    public function getRouteKeyName()   //return the name of the key and find the posts according to it.   {
-    {    
-        return 'slug';
-    }
+    // public function getRouteKeyName()   //return the name of the key and find the posts according to it.   {
+    // {    
+    //     return 'slug';
+    // }
 
     public function category()
     {
-        return $this->belongsTo(category::class);
+        return $this->belongsTo(Category::class);
     }
 
 }
